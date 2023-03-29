@@ -15,7 +15,7 @@
             //computer to choose randomly 
             function getComputerChoice() {
                 return Math.floor(Math.random() * 3);
-            }
+            };
             computerSelection = choices[getComputerChoice()];
 
             //user to input their choice
@@ -34,9 +34,41 @@
             //console.log(computerSelection);
             //console.log(getUserChoice());
 
-            //compare both choices
+            //compare both choices, announce the winner
+            function chooseWinner(computerSelection, userSelection) {
+                switch (computerSelection === rock) {
+                    case (userSelection === rock) :
+                        alert("It's a tie!");
+                        break;
+
+                    case (userSelection === paper) :
+                        alert("Congrats, you won!");
+                        break;
+
+                    case (userSelection === scissors) :
+                        alert("Oops, you lost!");
+                        break;
+                };
+            };
+
+            //start the game
+            let gameOn = true; 
             
-            //announce the winner
+            while (gameOn) {
+            
+                startGame = prompt('Are you ready to play? Y or N: ').toUpperCase();
+
+                if (startGame[0] === 'Y') {
+                    getUserChoice();
+                    chooseWinner();
+                } else if (startGame[0] === 'N') {
+                    gameOn = False;
+                } else {
+                    alert('Invalid answer. Please enter Y or N.');
+                    continue;
+                };
+            };
+
         </script>
     </body>
 </html>
