@@ -36,16 +36,16 @@
 
             //compare both choices, announce the winner
             function chooseWinner(computerSelection, userSelection) {
-                switch (computerSelection === rock) {
-                    case (userSelection === rock) :
+                switch (computerSelection === 'rock') {
+                    case (userSelection === 'rock') :
                         alert("It's a tie!");
                         break;
 
-                    case (userSelection === paper) :
+                    case (userSelection === 'paper') :
                         alert("Congrats, you won!");
                         break;
 
-                    case (userSelection === scissors) :
+                    case (userSelection === 'scissors') :
                         alert("Oops, you lost!");
                         break;
                 };
