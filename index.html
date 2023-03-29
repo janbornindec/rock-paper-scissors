@@ -76,12 +76,17 @@
 
             //start the game
             let gameOn = true; 
-            
+            //counting round
+            let round = 0;
             while (gameOn) {
 
                 startGame = prompt('Are you ready to play? Y or N: ') ;
 
                 if (startGame[0].toUpperCase() === 'Y') {
+                    //adding round each game
+                    round += 1;
+                    //print round number
+                    msg = console.log("Round " + round + ":");
                     getComputerChoice();
                     computerSelection = choices[getComputerChoice()];
                     getUserChoice();
