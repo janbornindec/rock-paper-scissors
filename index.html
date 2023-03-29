@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport", content="width=device-width, initial-scale=1.0">
+        <title>Rock Paper Scissors</title>
+        <script src="javascript.js"></script>
+    </head>
+
+    <body>
+        <script>
+            //three choices: Rock, Paper, Scissors
+            choices = ['rock','paper','scissors'];
+
+            //computer to choose randomly 
+            function getComputerChoice() {
+                return Math.floor(Math.random() * 3);
+            }
+            computerSelection = choices[getComputerChoice()];
+
+            //user to input their choice
+            function getUserChoice() {
+                answer = prompt("Choose Rock, Paper or Scissors: ").toLowerCase();
+
+                if (answer === 'rock' || answer === 'paper' || answer === 'scissors') {
+                    return answer;
+                } else {
+                    alert("Invalid answer. Please check your spelling again. Choose Rock, Paper or Scissors.");
+                    getUserChoice();
+                };
+             };
+
+            //check if working
+            //console.log(computerSelection);
+            //console.log(getUserChoice());
+
+            //compare both choices
+            
+            //announce the winner
+        </script>
+    </body>
+</html>
