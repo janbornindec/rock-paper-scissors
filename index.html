@@ -99,21 +99,19 @@
                     computerSelection = choices[getComputerChoice()];
                     getUserChoice();
                     chooseWinner();
-                    //make the game only lasts 5 rounds
-                    if (playRound === 5) {
-                        if (userWon > computerWon) {
-                            alert("Congrats! You won " + userWon + " times out of 5!");
-                            console.log("GAME OVER. User won the game")
-                            break;
-                        } else if (userWon < computerWon) {
-                            alert("Uh oh! Computer won " + computerWon + " times out of 5!");
-                            console.log("GAME OVER. Computer won the game");
-                            break;
-                        } else {
-                            alert("It's a tie!")
-                            console.log("GAME OVER. The game is a tie.")
-                            break;
-                        } break;
+                    //make the game stops after one user/computer won 5 rounds
+                    if (userWon === 5) {
+                        alert("Congrats! You won 5 rounds first!");
+                        console.log("GAME OVER. User won the game");
+                        //display results
+                        console.log("User: " + userWon + " Computer: " + computerWon);
+                        break;
+                    } else if (computerWon === 5) {
+                        alert("Uh oh! Computer won 5 rounds first!");
+                        console.log("GAME OVER. Computer won the game");
+                        //display results
+                        console.log("User: " + userWon + " Computer: " + computerWon);
+                        break;
                     } else {
                         continue;
                     };
