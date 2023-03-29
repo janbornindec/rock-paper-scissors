@@ -10,13 +10,10 @@
     <body>
         <script>
             //three choices: Rock, Paper, Scissors
-            choices = ['rock','paper','scissors'];
+            const choices = ['rock','paper','scissors'];
 
             //computer to choose randomly 
-            function getComputerChoice() {
-                return Math.floor(Math.random() * 3);
-            };
-            computerSelection = choices[getComputerChoice()];
+            let getComputerChoice = () => Math.floor(Math.random() * 3);
 
             //user to input their choice
             function getUserChoice() {
@@ -30,24 +27,50 @@
                 };
             };
 
-            //check if working
-            //console.log(computerSelection);
-            //console.log(getUserChoice());
-
             //compare both choices, announce the winner
-            function chooseWinner(computerSelection, userSelection) {
-                switch (computerSelection === 'rock') {
-                    case (userSelection === 'rock') :
+            function chooseWinner() {
+                if (computerSelection === 'rock') {
+
+                    if (userSelection === 'rock') {
                         alert("It's a tie!");
-                        break;
+                        console.log("Tie");
 
-                    case (userSelection === 'paper') :
+                    } else if (userSelection === 'paper') {
                         alert("Congrats, you won!");
-                        break;
+                        console.log("User won");
 
-                    case (userSelection === 'scissors') :
+                    } else {
                         alert("Oops, you lost!");
-                        break;
+                        console.log("Computer won");
+                    };
+
+                } else if (computerSelection === 'paper') {
+                    if (userSelection === 'rock') {
+                        alert("Oops, you lost!");
+                        console.log("Computer won");
+
+                    } else if (userSelection === 'paper') {
+                        alert("It's a tie!");
+                        console.log("Tie");
+                        
+                    } else {
+                        alert("Congrats, you won!");
+                        console.log("User won");
+                    };
+
+                } else {
+                    if (userSelection === 'rock') {
+                        alert("Congrats, you won!");
+                        console.log("User won");
+
+                    } else if (userSelection === 'paper') {
+                        alert("Oops, you lost!");
+                        console.log("Computer won");
+                        
+                    } else {
+                        alert("It's a tie!");
+                        console.log("Tie");
+                    };
                 };
             };
 
@@ -55,14 +78,19 @@
             let gameOn = true; 
             
             while (gameOn) {
-            
-                startGame = prompt('Are you ready to play? Y or N: ').toUpperCase();
 
-                if (startGame[0] === 'Y') {
+                startGame = prompt('Are you ready to play? Y or N: ') ;
+
+                if (startGame[0].toUpperCase() === 'Y') {
+                    getComputerChoice();
+                    computerSelection = choices[getComputerChoice()];
                     getUserChoice();
                     chooseWinner();
-                } else if (startGame[0] === 'N') {
+                    continue;
+
+                } else if (startGame[0].toUpperCase() === 'N') {
                     gameOn = false;
+                    
                 } else {
                     alert('Invalid answer. Please enter Y or N.');
                     continue;
