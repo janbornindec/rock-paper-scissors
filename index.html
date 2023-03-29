@@ -38,7 +38,6 @@
             //compare both choices, announce the winner
             let userWon = 0;
             let computerWon = 0;
-            
             function chooseWinner() {
                 if (computerSelection === 'rock') {
 
@@ -85,8 +84,8 @@
                 };
             };
 
+            //game if not started when the button is not clicked
             let gameOn = false;
-            let playRound = 0;
             //function to switch on the game
             function game() {
                 answer = prompt('Are you ready to play? Y or N: ');
@@ -94,6 +93,10 @@
                     alert("You've cancelled the game. Refresh the page to start again.");
                 } else if (answer[0].toUpperCase() === 'Y') {
                     gameOn = true;
+                    //reset the stats each game
+                    let playRound = 0;
+                    userWon = 0;
+                    computerWon = 0;
                     while (gameOn) {
                         playRound += 1;
                         //print round number
