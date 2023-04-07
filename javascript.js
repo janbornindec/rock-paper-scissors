@@ -7,16 +7,22 @@ function getComputerChoice() {
     return computerSelection;
 };
 
+const buttons = document.querySelectorAll('.btn');
+//make each game option invisible unless game has started
+buttons.forEach((button) => button.style.display = 'none');
+
+//make game options visible once StartGame btn is clicked
+document.querySelector('.start').addEventListener('click', showBtn); 
+
+function showBtn(e) {
+    buttons.forEach((button) => button.style.display = 'block');
+    e.preventDefault();
+    document.querySelector('.start').style.display='none'; //make startgame btn disappear
+};
+
 //user to input their choice
 function getUserChoice() {
-    userSelection = prompt("Choose Rock, Paper or Scissors: ").toLowerCase();
-
-    if (userSelection === 'rock' || userSelection === 'paper' || userSelection === 'scissors') {
-        return userSelection;
-    } else {
-        alert("Invalid answer. Please check your spelling again. Choose Rock, Paper or Scissors.");
-        getUserChoice();
-    };
+    
 };
 
 //compare both choices, announce the winner
@@ -72,12 +78,14 @@ function chooseWinner() {
 let gameOn = false;
 
 //link button to game() function 
-const startGame = document.querySelector('.startGame');
-startGame.addEventListener('click', game);
+//const startGame = document.querySelector('.startGame');
+//startGame.addEventListener('click', game);
 
 //function to switch on the game
 function game() {
-    answer = prompt('Are you ready to play? Y or N: ');
+    alert('Choose Rock, Paper or Scissors. First to 5 win!');
+    //show buttons to let user choose 
+    getUserChoice();
     if (answer === null) {
         alert("You've cancelled the game. Refresh the page to start again.");
     } else if (answer[0].toUpperCase() === 'Y') {
