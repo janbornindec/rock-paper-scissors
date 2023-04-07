@@ -68,46 +68,45 @@ function chooseWinner() {
 //game if not started when the button is not clicked
 let gameOn = false;
 
+//link button to game() function 
 const startGame = document.querySelector('.startGame');
-startGame.addEventListener('click', () => {
-    playRound();
-});
+startGame.addEventListener('click', game);
 
 //function to switch on the game
-function playRound() {
+function game() {
     answer = prompt('Are you ready to play? Y or N: ');
     if (answer === null) {
         alert("You've cancelled the game. Refresh the page to start again.");
     } else if (answer[0].toUpperCase() === 'Y') {
         gameOn = true;
         //reset the stats each game
-        let round = 0;
+        let playRound = 0;
         userWon = 0;
         computerWon = 0;
         while (gameOn) {
-            round += 1;
+            playRound += 1;
             //print round number
-            msg = console.log("Round " + round + ":");
+            msg = console.log("Round " + playRound + ":");
             getComputerChoice();
             computerSelection = choices[getComputerChoice()];
             getUserChoice();
             chooseWinner();
             //make the game stops after one user/computer won 5 rounds
-            //if (userWon === 5) {
-            //    alert("Congrats! You won 5 rounds first!");
-            //    console.log("GAME OVER. User won the game");
-            //    //display results
-            //    console.log("User: " + userWon + " Computer: " + computerWon);
-            //    break;
-            //} else if (computerWon === 5) {
-            //    alert("Uh oh! Computer won 5 rounds first!");
-            //    console.log("GAME OVER. Computer won the game");
+            if (userWon === 5) {
+                alert("Congrats! You won 5 rounds first!");
+                console.log("GAME OVER. User won the game");
                 //display results
-            //    console.log("User: " + userWon + " Computer: " + computerWon);
-            //    break;
-            //} else {
-            //   continue;
-            //};
+                console.log("User: " + userWon + " Computer: " + computerWon);
+                break;
+            } else if (computerWon === 5) {
+                alert("Uh oh! Computer won 5 rounds first!");
+                console.log("GAME OVER. Computer won the game");
+                //display results
+                console.log("User: " + userWon + " Computer: " + computerWon);
+                break;
+            } else {
+                continue;
+            };
         };
     } else if (answer[0].toUpperCase() === 'N') {
         alert("You've exited the game. Refresh the page to start again.");
@@ -115,3 +114,49 @@ function playRound() {
         alert('Invalid answer. Please enter Y or N.');
     };
 };
+
+//V1 - without button.
+//while (game) {
+
+//    startGame = prompt('Are you ready to play? Y or N: ') ;
+
+    //if user quit by other methods than entering N
+//    if (startGame === null) {
+//        alert("You've cancelled the game. Refresh the page to start again.")
+//        game = false;
+    
+//    } else if (startGame[0].toUpperCase() === 'Y') {
+        //adding round each game
+//        playRound += 1;
+        //print round number
+//        msg = console.log("Round " + playRound + ":");
+//        getComputerChoice();
+//        computerSelection = choices[getComputerChoice()];
+//        getUserChoice();
+//        chooseWinner();
+        //make the game stops after one user/computer won 5 rounds
+//        if (userWon === 5) {
+//            alert("Congrats! You won 5 rounds first!");
+//            console.log("GAME OVER. User won the game");
+            //display results
+//            console.log("User: " + userWon + " Computer: " + computerWon);
+//            break;
+//        } else if (computerWon === 5) {
+//            alert("Uh oh! Computer won 5 rounds first!");
+//            console.log("GAME OVER. Computer won the game");
+            //display results
+//            console.log("User: " + userWon + " Computer: " + computerWon);
+//            break;
+//        } else {
+//            continue;
+//        };
+
+//    } else if (startGame[0].toUpperCase() === 'N') {
+//        alert("You've exited the game. Refresh the page to start again.")
+//        game = false;
+        
+//    } else {
+//        alert('Invalid answer. Please enter Y or N.');
+//        continue;
+//    };
+//};
