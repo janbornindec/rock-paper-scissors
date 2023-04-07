@@ -106,21 +106,21 @@
                         getUserChoice();
                         chooseWinner();
                         //make the game stops after one user/computer won 5 rounds
-                        if (userWon === 5) {
-                            alert("Congrats! You won 5 rounds first!");
-                            console.log("GAME OVER. User won the game");
+                        //if (userWon === 5) {
+                        //    alert("Congrats! You won 5 rounds first!");
+                        //    console.log("GAME OVER. User won the game");
+                        //    //display results
+                        //    console.log("User: " + userWon + " Computer: " + computerWon);
+                        //    break;
+                        //} else if (computerWon === 5) {
+                        //    alert("Uh oh! Computer won 5 rounds first!");
+                        //    console.log("GAME OVER. Computer won the game");
                             //display results
-                            console.log("User: " + userWon + " Computer: " + computerWon);
-                            break;
-                        } else if (computerWon === 5) {
-                            alert("Uh oh! Computer won 5 rounds first!");
-                            console.log("GAME OVER. Computer won the game");
-                            //display results
-                            console.log("User: " + userWon + " Computer: " + computerWon);
-                            break;
-                        } else {
-                            continue;
-                        };
+                        //    console.log("User: " + userWon + " Computer: " + computerWon);
+                        //    break;
+                        //} else {
+                        //   continue;
+                        //};
                     };
                 } else if (answer[0].toUpperCase() === 'N') {
                     alert("You've exited the game. Refresh the page to start again.");
@@ -129,52 +129,6 @@
                 };
             };
             
-            //V1 - without button.
-            //while (game) {
-
-            //    startGame = prompt('Are you ready to play? Y or N: ') ;
-
-                //if user quit by other methods than entering N
-            //    if (startGame === null) {
-            //        alert("You've cancelled the game. Refresh the page to start again.")
-            //        game = false;
-                
-            //    } else if (startGame[0].toUpperCase() === 'Y') {
-                    //adding round each game
-            //        playRound += 1;
-                    //print round number
-            //        msg = console.log("Round " + playRound + ":");
-            //        getComputerChoice();
-            //        computerSelection = choices[getComputerChoice()];
-            //        getUserChoice();
-            //        chooseWinner();
-                    //make the game stops after one user/computer won 5 rounds
-            //        if (userWon === 5) {
-            //            alert("Congrats! You won 5 rounds first!");
-            //            console.log("GAME OVER. User won the game");
-                        //display results
-            //            console.log("User: " + userWon + " Computer: " + computerWon);
-            //            break;
-            //        } else if (computerWon === 5) {
-            //            alert("Uh oh! Computer won 5 rounds first!");
-            //            console.log("GAME OVER. Computer won the game");
-                        //display results
-            //            console.log("User: " + userWon + " Computer: " + computerWon);
-            //            break;
-            //        } else {
-            //            continue;
-            //        };
-
-            //    } else if (startGame[0].toUpperCase() === 'N') {
-            //        alert("You've exited the game. Refresh the page to start again.")
-            //        game = false;
-                    
-            //    } else {
-            //        alert('Invalid answer. Please enter Y or N.');
-            //        continue;
-            //    };
-            //};
-
         </script>
     </body>
 </html>
