@@ -1,8 +1,11 @@
-//three choices: Rock, Paper, Scissors
-const choices = ['rock','paper','scissors'];
+//make three choices into an object's own enumerable string-keyed property key-value pairs
+const choices = {0: 'rock', 1: 'paper', 2: 'scissors'};
 
-//computer to choose randomly 
-let getComputerChoice = () => Math.floor(Math.random() * 3);
+//computer to choose randomly and return as computerSelection
+function getComputerChoice() {
+    computerSelection = Math.floor(Math.random() * 3);
+    return computerSelection;
+};
 
 //user to input their choice
 function getUserChoice() {
@@ -88,7 +91,6 @@ function game() {
             //print round number
             msg = console.log("Round " + playRound + ":");
             getComputerChoice();
-            computerSelection = choices[getComputerChoice()];
             getUserChoice();
             chooseWinner();
             //make the game stops after one user/computer won 5 rounds
