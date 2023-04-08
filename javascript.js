@@ -39,43 +39,43 @@ function chooseWinner() {
     if (computerSelection === '0') {
 
         if (userSelection === 'rock') {
-            alert("It's a tie!");
+            content.textContent = "It's a tie!";
             console.log("Tie");
         } else if (userSelection === 'paper') {
-            alert("Congrats, you won this round!");
+            content.textContent = "Congrats, you won this round!";
             console.log("User won");
             userWon += 1;
         } else {
-            alert("Oops, you lost this round!");
+            content.textContent = "Oops, you lost this round!";
             console.log("Computer won");
             computerWon += 1;
         };
 
     } else if (computerSelection === '1') {
         if (userSelection === 'rock') {
-            alert("Oops, you lost this round!");
+            content.textContent = "Oops, you lost this round!";
             console.log("Computer won");
             computerWon += 1;
         } else if (userSelection === 'paper') {
-            alert("It's a tie!");
+            content.textContent = "It's a tie!";
             console.log("Tie")
         } else {
-            alert("Congrats, you won this round!");
+            content.textContent = "Congrats, you won this round!";
             console.log("User won");
             userWon += 1;
         };
 
     } else {
         if (userSelection === 'rock') {
-            alert("Congrats, you won this round!");
+            content.textContent = "Congrats, you won this round!";
             console.log("User won");
             userWon += 1;
         } else if (userSelection === 'paper') {
-            alert("Oops, you lost this round!");
+            content.textContent = "Oops, you lost this round!";
             console.log("Computer won");
             computerWon += 1;
         } else {
-            alert("It's a tie!");
+            content.textContent = "It's a tie!";
             console.log("Tie");
         };
     };
@@ -97,7 +97,7 @@ function playRound() {
     chooseWinner();
 
     //display running score in div
-    content.textContent = 
+    content.textContent += 
     `Round: ${round}
     User: ${userWon}
     Computer: ${computerWon}`
