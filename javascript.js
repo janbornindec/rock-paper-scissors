@@ -15,12 +15,17 @@ buttons.forEach((button) => button.style.display = 'none');
 document.querySelector('.start').addEventListener('click', showBtn); 
 
 //default stats
-let round = 0;
-let userWon = 0;
-let computerWon = 0;
-let winner;
+let round;
+let userWon;
+let computerWon;
 
 function showBtn(e) {
+    //reset stats each game
+    round = 0;
+    userWon = 0;
+    computerWon = 0;
+    //reset result msg each game
+    content.textContent = ''
     buttons.forEach((button) => button.style.display = 'block');
     e.preventDefault();
     document.querySelector('.start').style.display='none'; //make startgame btn disappear
@@ -36,7 +41,7 @@ buttons.forEach((button) => {
 
 //compare both choices, announce the winner
 function chooseWinner() {
-    if (computerSelection === '0') {
+    if (computerSelection === 'rock') {
 
         if (userSelection === 'rock') {
             content.textContent = "It's a tie!";
@@ -51,7 +56,7 @@ function chooseWinner() {
             computerWon += 1;
         };
 
-    } else if (computerSelection === '1') {
+    } else if (computerSelection === 'paper') {
         if (userSelection === 'rock') {
             content.textContent = "Oops, you lost this round!";
             console.log("Computer won");
@@ -106,8 +111,16 @@ function playRound() {
     if (round >= 5) {
         if (userWon === 5) {
             content.textContent += 'User won 5 rounds first!';
+            //display startgame button
+            document.querySelector('.start').style.display='block'
+            //hide three options
+            buttons.forEach((button) => button.style.display = 'none');
         } else if (computerWon === 5) {
             content.textContent += '\nComputer won 5 rounds first!';
+            //display startgame button
+            document.querySelector('.start').style.display='block'
+            //hide three options
+            buttons.forEach((button) => button.style.display = 'none');
         } else return;
     } else return;
 };
