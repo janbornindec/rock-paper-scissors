@@ -16,20 +16,29 @@ document.querySelector('.start').addEventListener('click', showBtn);
 
 function showBtn(e) {
     buttons.forEach((button) => button.style.display = 'block');
-    e.preventDefault();
+    e.preventDefault(); //
     document.querySelector('.start').style.display='none'; //make startgame btn disappear
 };
 
+//once player click any of the three buttons, return the button id
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        userSelection = button.id;
+        return userSelection;
+    });
+});
+
 //user to input their choice
-function getUserChoice() {
-    
+function playRound() {
+    getComputerChoice();
+    chooseWinner();
 };
 
 //compare both choices, announce the winner
 let userWon = 0;
 let computerWon = 0;
 function chooseWinner() {
-    if (computerSelection === 'rock') {
+    if (computerSelection === '0') {
 
         if (userSelection === 'rock') {
             alert("It's a tie!");
@@ -44,7 +53,7 @@ function chooseWinner() {
             computerWon += 1;
         };
 
-    } else if (computerSelection === 'paper') {
+    } else if (computerSelection === '1') {
         if (userSelection === 'rock') {
             alert("Oops, you lost this round!");
             console.log("Computer won");
@@ -76,10 +85,6 @@ function chooseWinner() {
 
 //game if not started when the button is not clicked
 let gameOn = false;
-
-//link button to game() function 
-//const startGame = document.querySelector('.startGame');
-//startGame.addEventListener('click', game);
 
 //function to switch on the game
 function game() {
