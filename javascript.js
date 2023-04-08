@@ -12,18 +12,17 @@ const buttons = document.querySelectorAll('.btn');
 buttons.forEach((button) => button.style.display = 'none');
 
 //make game options visible once StartGame btn is clicked
-document.querySelector('.start').addEventListener('click', newGame); 
+document.querySelector('.start').addEventListener('click', showBtn); 
 
-let gameOn = false; //game is not started if startGame is not clicked
 //default stats
 let round = 0;
 let userWon = 0;
 let computerWon = 0;
+let winner;
 
-function newGame(e) {
-    gameOn = true; //start new game
+function showBtn(e) {
     buttons.forEach((button) => button.style.display = 'block');
-    e.preventDefault(); //
+    e.preventDefault();
     document.querySelector('.start').style.display='none'; //make startgame btn disappear
 };
 
@@ -96,11 +95,19 @@ function playRound() {
     console.log("Computer chooses: " + computerSelection);
     console.log("User chooses: " + userSelection);
     chooseWinner();
-    //display result in div
+
+    //display running score in div
     content.textContent = 
     `Round: ${round}
-    Computer chose: ${computerSelection}
-    User chose: ${userSelection}
-    User won: ${userWon}
-    Computer won: ${computerWon}`
+    User: ${userWon}
+    Computer: ${computerWon}`
+
+    //display winner after someone won 5 rounds
+    if (round >= 5) {
+        if (userWon === 5) {
+            content.textContent += 'User won 5 rounds first!';
+        } else if (computerWon === 5) {
+            content.textContent += '\nComputer won 5 rounds first!';
+        } else return;
+    } else return;
 };
