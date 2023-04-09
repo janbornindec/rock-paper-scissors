@@ -25,7 +25,8 @@ function showBtn(e) {
     userWon = 0;
     computerWon = 0;
     //reset result msg each game
-    content.textContent = ''
+    message.textContent = '';
+    scores.textContent = '';
     buttons.forEach((button) => button.style.display = 'block');
     e.preventDefault();
     document.querySelector('.start').style.display='none'; //make startgame btn disappear
@@ -44,43 +45,43 @@ function chooseWinner() {
     if (computerSelection === 'rock') {
 
         if (userSelection === 'rock') {
-            content.textContent = "It's a tie!\n";
+            message.textContent = "It's a tie!\n";
             console.log("Tie");
         } else if (userSelection === 'paper') {
-            content.textContent = "Congrats, you won this round!\n";
+            message.textContent = "Congrats, you won this round!\n";
             console.log("User won");
             userWon += 1;
         } else {
-            content.textContent = "Oops, you lost this round!\n";
+            message.textContent = "Oops, you lost this round!\n";
             console.log("Computer won");
             computerWon += 1;
         };
 
     } else if (computerSelection === 'paper') {
         if (userSelection === 'rock') {
-            content.textContent = "Oops, you lost this round!\n";
+            message.textContent = "Oops, you lost this round!\n";
             console.log("Computer won");
             computerWon += 1;
         } else if (userSelection === 'paper') {
-            content.textContent = "It's a tie!\n";
+            message.textContent = "It's a tie!\n";
             console.log("Tie")
         } else {
-            content.textContent = "Congrats, you won this round!\n";
+            message.textContent = "Congrats, you won this round!\n";
             console.log("User won");
             userWon += 1;
         };
 
     } else {
         if (userSelection === 'rock') {
-            content.textContent = "Congrats, you won this round!\n";
+            message.textContent = "Congrats, you won this round!\n";
             console.log("User won");
             userWon += 1;
         } else if (userSelection === 'paper') {
-            content.textContent = "Oops, you lost this round!\n";
+            message.textContent = "Oops, you lost this round!\n";
             console.log("Computer won");
             computerWon += 1;
         } else {
-            content.textContent = "It's a tie!\n";
+            message.textContent = "It's a tie!\n";
             console.log("Tie");
         };
     };
@@ -88,9 +89,12 @@ function chooseWinner() {
 
 //add text content div to html
 const container = document.querySelector('#result');
-const content = document.createElement('div');  
-content.setAttribute('id','content');
-container.appendChild(content);
+const message = document.createElement('div');  
+const scores = document.createElement('div');  
+message.setAttribute('id','content');
+scores.setAttribute('id','content');
+container.appendChild(message);
+container.appendChild(scores);
 
 function playRound() {
     round += 1;
@@ -102,7 +106,7 @@ function playRound() {
     chooseWinner();
 
     //display running score in div
-    content.textContent += 
+    scores.textContent = 
     `Round: ${round}
     User: ${userWon}
     Computer: ${computerWon} \n`
@@ -110,13 +114,13 @@ function playRound() {
     //display winner after someone won 5 rounds
     if (round >= 5) {
         if (userWon === 5) {
-            content.textContent += 'User won 5 rounds first!';
+            message.textContent = "You defeated the computer! You're pretty smart I guess?";
             //display startgame button
             document.querySelector('.start').style.display='block'
             //hide three options
             buttons.forEach((button) => button.style.display = 'none');
         } else if (computerWon === 5) {
-            content.textContent += 'Computer won 5 rounds first!';
+            message.textContent = "You lost, as we all expected! Computer rules!";
             //display startgame button
             document.querySelector('.start').style.display='block'
             //hide three options
