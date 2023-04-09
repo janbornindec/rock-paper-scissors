@@ -44,43 +44,43 @@ function chooseWinner() {
     if (computerSelection === 'rock') {
 
         if (userSelection === 'rock') {
-            content.textContent = "It's a tie!";
+            content.textContent = "It's a tie!\n";
             console.log("Tie");
         } else if (userSelection === 'paper') {
-            content.textContent = "Congrats, you won this round!";
+            content.textContent = "Congrats, you won this round!\n";
             console.log("User won");
             userWon += 1;
         } else {
-            content.textContent = "Oops, you lost this round!";
+            content.textContent = "Oops, you lost this round!\n";
             console.log("Computer won");
             computerWon += 1;
         };
 
     } else if (computerSelection === 'paper') {
         if (userSelection === 'rock') {
-            content.textContent = "Oops, you lost this round!";
+            content.textContent = "Oops, you lost this round!\n";
             console.log("Computer won");
             computerWon += 1;
         } else if (userSelection === 'paper') {
-            content.textContent = "It's a tie!";
+            content.textContent = "It's a tie!\n";
             console.log("Tie")
         } else {
-            content.textContent = "Congrats, you won this round!";
+            content.textContent = "Congrats, you won this round!\n";
             console.log("User won");
             userWon += 1;
         };
 
     } else {
         if (userSelection === 'rock') {
-            content.textContent = "Congrats, you won this round!";
+            content.textContent = "Congrats, you won this round!\n";
             console.log("User won");
             userWon += 1;
         } else if (userSelection === 'paper') {
-            content.textContent = "Oops, you lost this round!";
+            content.textContent = "Oops, you lost this round!\n";
             console.log("Computer won");
             computerWon += 1;
         } else {
-            content.textContent = "It's a tie!";
+            content.textContent = "It's a tie!\n";
             console.log("Tie");
         };
     };
@@ -105,7 +105,7 @@ function playRound() {
     content.textContent += 
     `Round: ${round}
     User: ${userWon}
-    Computer: ${computerWon}`
+    Computer: ${computerWon} \n`
 
     //display winner after someone won 5 rounds
     if (round >= 5) {
@@ -116,7 +116,7 @@ function playRound() {
             //hide three options
             buttons.forEach((button) => button.style.display = 'none');
         } else if (computerWon === 5) {
-            content.textContent += '\nComputer won 5 rounds first!';
+            content.textContent += 'Computer won 5 rounds first!';
             //display startgame button
             document.querySelector('.start').style.display='block'
             //hide three options
