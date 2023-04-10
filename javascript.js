@@ -7,6 +7,24 @@ function getComputerChoice() {
     return computerSelection;
 };
 
+//add computer card to DOM
+const computerHands = document.querySelector('.computer-hands');
+const compCardText = document.createElement('div');
+computerHands.appendChild(compCardText);
+const compCard = document.createElement('img');
+computerHands.appendChild(compCard);
+
+//display computer card choice img of current round
+function displayCompCard() {
+    if (computerSelection === 'rock') {
+        compCard.src = "images/rock-min1.png";;
+    } else if (computerSelection === 'paper') {
+        compCard.src = "images/paper-min1.png";
+    } else {
+        compCard.src = "images/scissors-min1.png";
+    };
+};
+
 const buttons = document.querySelectorAll('.btn');
 //make each game option invisible unless game has started
 buttons.forEach((button) => button.style.display = 'none');
@@ -18,6 +36,8 @@ document.querySelector('.start').addEventListener('click', showBtn);
 let round;
 let userWon;
 let computerWon;
+//show only computer card choice of the current round
+compCard.src = '';
 
 function showBtn(e) {
     //reset stats each game
@@ -91,25 +111,31 @@ function chooseWinner() {
 const container = document.querySelector('#result');
 const message = document.createElement('div');  
 const scores = document.createElement('div');  
-message.setAttribute('id','content');
 scores.setAttribute('id','content');
-container.appendChild(message);
+message.setAttribute('id','content');
 container.appendChild(scores);
+container.appendChild(message);
 
 function playRound() {
     round += 1;
     //print round number
     msg = console.log("Round " + round + ":");
+    computerHands.style.display = 'block';
+    compCardText.textContent = "Computer's card:";
+    //get random choice from computer
     getComputerChoice();
+    //display computer card choice
+    displayCompCard()
     console.log("Computer chooses: " + computerSelection);
     console.log("User chooses: " + userSelection);
     chooseWinner();
 
     //display running score in div
+    container.style.display = 'block';
     scores.textContent = 
     `Round ${round}:
     User: ${userWon}
-    Computer: ${computerWon} \n`
+    Computer: ${computerWon} \n`;
 
     //display winner after someone won 5 rounds
     if (round >= 5) {
@@ -119,12 +145,14 @@ function playRound() {
             document.querySelector('.start').style.display='block'
             //hide three options
             buttons.forEach((button) => button.style.display = 'none');
+            computerHands.style.display = 'none';
         } else if (computerWon === 5) {
             message.textContent = "You lost, as we all expected! Computer rules!";
             //display startgame button
             document.querySelector('.start').style.display='block'
             //hide three options
             buttons.forEach((button) => button.style.display = 'none');
+            computerHands.style.display = 'none';
         } else return;
     } else return;
 };
