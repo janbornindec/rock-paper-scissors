@@ -107,7 +107,7 @@ function playRound() {
 
     //display running score in div
     scores.textContent = 
-    `Round: ${round}
+    `Round ${round}:
     User: ${userWon}
     Computer: ${computerWon} \n`
 
