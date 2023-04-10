@@ -28,6 +28,23 @@ img{
     width: auto;
 }
 
+.start {
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+.start:hover {
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 10px 20px;
+    border: 1px solid;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+}
+
 .btn {
     /*hide default button attributes*/
     appearance: none;
@@ -36,7 +53,13 @@ img{
     background-color: black;
 }
 .btn:hover {
-    transform: rotate(5deg);
+    transform: rotate(2deg) scale(120%);
+    cursor: pointer;
+}
+
+.btn:active {
+    transform: rotate(2deg) scale(95%);
+    transition: .4s;
 }
 
 .midSection {
