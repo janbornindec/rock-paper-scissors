@@ -160,6 +160,8 @@ function playRound() {
             //hide three options
             buttons.forEach((button) => button.style.display = 'none');
             computerHands.style.display = 'none';
+            //hide result msg border
+            container.style.display = 'none';
         } else return;
     } else return;
 };
