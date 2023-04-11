@@ -14,6 +14,9 @@ computerHands.appendChild(compCardText);
 const compCard = document.createElement('img');
 computerHands.appendChild(compCard);
 
+//shuffle computer card
+const compRock = document.createElement('img')
+
 //display computer card choice img of current round
 function displayCompCard() {
     if (computerSelection === 'rock') {
@@ -140,6 +143,7 @@ function playRound() {
     //display winner after someone won 5 rounds
     if (round >= 5) {
         if (userWon === 5) {
+            alert('Congrats! You defeated the computer!')
             message.textContent = "You defeated the computer! You're pretty smart I guess?";
             //display startgame button
             document.querySelector('.start').style.display='block'
@@ -149,7 +153,8 @@ function playRound() {
             //hide result msg border
             container.style.display = 'none';
         } else if (computerWon === 5) {
-            message.textContent = "You lost, as we all expected! Computer rules!";
+            alert('Yikee! You lost to a computer!')
+            message.textContent = "You lost, no surprise there! Computer rules!";
             //display startgame button
             document.querySelector('.start').style.display='block'
             //hide three options
