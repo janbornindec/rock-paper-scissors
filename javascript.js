@@ -35,6 +35,15 @@ buttons.forEach((button) => button.style.display = 'none');
 //make game options visible once StartGame btn is clicked
 document.querySelector('.start').addEventListener('click', showBtn); 
 
+//add text content div to html
+const container = document.querySelector('#result');
+const message = document.createElement('div');  
+const scores = document.createElement('div');  
+scores.setAttribute('id','content');
+message.setAttribute('id','content');
+container.appendChild(scores);
+container.appendChild(message);
+
 //default stats
 let round;
 let userWon;
@@ -48,6 +57,7 @@ function showBtn(e) {
     userWon = 0;
     computerWon = 0;
     //reset result msg each game
+    container.style.display = 'none';
     message.textContent = '';
     scores.textContent = '';
     buttons.forEach((button) => button.style.display = 'block');
@@ -110,15 +120,6 @@ function chooseWinner() {
     };
 };
 
-//add text content div to html
-const container = document.querySelector('#result');
-const message = document.createElement('div');  
-const scores = document.createElement('div');  
-scores.setAttribute('id','content');
-message.setAttribute('id','content');
-container.appendChild(scores);
-container.appendChild(message);
-
 function playRound() {
     round += 1;
     //print round number
@@ -150,18 +151,14 @@ function playRound() {
             //hide three options
             buttons.forEach((button) => button.style.display = 'none');
             computerHands.style.display = 'none';
-            //hide result msg border
-            container.style.display = 'none';
         } else if (computerWon === 5) {
-            alert('Yikee! You lost to a computer!')
+            alert('Yikes! You lost to a computer!')
             message.textContent = "You lost, no surprise there! Computer rules!";
             //display startgame button
             document.querySelector('.start').style.display='block'
             //hide three options
             buttons.forEach((button) => button.style.display = 'none');
             computerHands.style.display = 'none';
-            //hide result msg border
-            container.style.display = 'none';
         } else return;
     } else return;
 };
