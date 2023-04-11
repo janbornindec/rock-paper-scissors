@@ -146,6 +146,8 @@ function playRound() {
             //hide three options
             buttons.forEach((button) => button.style.display = 'none');
             computerHands.style.display = 'none';
+            //hide result msg border
+            container.style.display = 'none';
         } else if (computerWon === 5) {
             message.textContent = "You lost, as we all expected! Computer rules!";
             //display startgame button
