@@ -7,26 +7,51 @@ body {
     align-items: center;
     margin: 0;
     padding: 0;
-    height: 100vh; /*fit the viewport height*/
-    width: 100vw; /*fit the viewport width*/
+    height: 98vh; /*fit the viewport height*/
+    width: 98vw; /*fit the viewport width*/
     font-family: 'Cormorant SC', serif;
     font-size: 20px;
     background-color: black;
     color: white;
 }
 
-h1 {
-    font-family: 'Press Start 2P', cursive;
+.header {
+    display: flex;
+    flex-direction: row;
+    font-size: 15px;
+    justify-content: left;
+    width: 100%;
+    max-height: 100px;
+    align-items: center;
+    margin: 1em 0 0 3em;
 }
 
-img{
+#logo {
+    width: 200px; /* width of container */
+    height: 60px; /* height of container */
+    object-fit: cover;
+    object-position: -35px -45px; /* try 20px 10px */ 
+}
+
+h1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 30px;
+    margin: 0;
+}
+
+p {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+img {
     max-height: 350px;
     width: auto;
 }
 
 .start {
     text-transform: uppercase;
-    padding: 10px 20px;
+    padding: 10px;
     border: 1px solid;
     border-radius: 5px;
 }
